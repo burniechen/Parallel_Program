@@ -89,5 +89,18 @@ int main()
 		std::cout << "\n";
 	}
 
+	std::cout << "-----conversion-----\n";
+	Row_major_Matrix<int> rr;
+	rr = c_test*r_test;
+	for(int i=0; i<rr.row; i++)
+	{
+		for(int j=0; j<rr.col; j++)
+		{
+			std::cout << rr.getter(i, j) << " ";
+		}
+		std::cout << "\n";
+	}
+
+
 	return 0;
 }

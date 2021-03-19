@@ -92,6 +92,19 @@ class Row_major_Matrix
             return r_tmp;
         }
 
+		// implicit type conversion
+        operator Column_major_Matrix<T>()
+        {
+			Column_major_Matrix<T> c_tmp(col, row);
+            for(int i=0; i<row; i++)
+                for(int j=0; j<col; j++)
+                    c_tmp.setter(j, i, getter(i, j));
+			
+			std::cout << "*** Row -> Column ***\n";
+
+            return c_tmp;
+        }
+
 		// destructor
 	   ~Row_major_Matrix(){}
 };
