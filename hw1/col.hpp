@@ -26,7 +26,6 @@ class Column_major_Matrix
 			:row(r), col(c) 
 		{
 			all_column.resize(col, std::vector<T>(row));
-			srand(time(NULL));
 
 			for(int i=0; i<row; i++)
 			{
@@ -63,7 +62,7 @@ class Column_major_Matrix
 			std::cout << "Move Constructor is called..." << std::endl;
 		}
 		
-		// move assignment constructor
+		// overlod move assignment
 		Column_major_Matrix &operator = (const Column_major_Matrix &&other)
 		{
 			row = std::move(other.row);
@@ -84,7 +83,7 @@ class Column_major_Matrix
                     T tmp = 0;
                     for(int k=0; k<col; k++)
                     {
-                        tmp += all_column[i][k]*row_m.getter(k, j);
+                        tmp += getter(i, k)*row_m.getter(k, j);
                     }
                     c_tmp.setter(i, j, tmp);
                 }
