@@ -2,5 +2,5 @@
 .DS_Store
 *.out
 *.pdf
-*.xslx
+*.xlsx
 libsvm
